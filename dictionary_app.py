@@ -25,7 +25,6 @@ def translate(w):
     if w in data:  # checking if the word is in the data
         return data[w]  # returning the translation
     elif len(get_close_matches(w, data.keys())) > 0:  # if the word is not in the data
-
         """
         If the word is not in the data, the function prompts the user for a possible
         alternative suggestion. by using difflib.get_close_matches()
@@ -33,13 +32,12 @@ def translate(w):
 
         close_matches = get_close_matches(w, data.keys())
         yn = input(
-            "Did you mean %s instead? Enter Y if yes, or N if no: "
-            % close_matches[0]
+            "Did you mean %s instead? Enter Y if yes, or N if no: " % close_matches[0]
         )
 
-        if yn == "Y" or yn == "y": # if the user confirms the suggestions
-            return data[close_matches[0]] 
-        elif yn == "N" or yn == "n": # if the user rejects the suggestions
+        if yn == "Y" or yn == "y":  # if the user confirms the suggestions
+            return data[close_matches[0]]
+        elif yn == "N" or yn == "n":  # if the user rejects the suggestions
             return "The word doesn't exist. Please double check it."
         else:
             return "We didn't understand your entry."
@@ -48,10 +46,10 @@ def translate(w):
 
 
 if __name__ == "__main__":
-    word = input("Enter word: ") # taking input
-    output = translate(word) # calling the translate function 
-    if type(output) == list: # if the output is a list
-        for item in output: # iterating through the list 
+    word = input("Enter word: ")  # taking input
+    output = translate(word)  # calling the translate function
+    if type(output) == list:  # if the output is a list
+        for item in output:  # iterating through the list
             print(item)
     else:
         print(output)
