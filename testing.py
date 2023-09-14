@@ -1,7 +1,12 @@
-import json
+import sqlite3
 
-data = json.load(open("1_dictionary_app/data.json"))
+conn = sqlite3.connect("dictionary copy.db")  # creating a connection to the database
+cursor = conn.cursor()  # cursor object created to perform operations on the database
 
-print(data.items())
+cursor.execute(
+    "select Word from Dictionary"
+)
+word_list = cursor.fetchall()
+word_list = [word[0] for word in word_list]
 
-# print(type(*list(defi)[0]))
+print(word_list)
