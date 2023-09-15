@@ -302,3 +302,66 @@ if __name__ == "__main__":
 - So, that if we ever change the url for home or about we will see the changes everywhere, We dont get error when to use the navbar.
 
 #### now we are ready to go
+
+
+# Stylling 
+
+- Just use Chatgpt..... ✌😉
+- Im not a designer, I just write code. Sooooooo,
+- Using the revolutionary design tool Chatgpt i styled the layout template with Tailwind CDN.😎😎
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-4">LOGO</h1>
+      <nav class="mb-4">
+        <a href="{{ url_for('home') }}" class="mr-4 text-blue-500">Home</a>
+        <a href="{{ url_for('about') }}" class="text-blue-500">About</a>
+      </nav>
+      <div class="bg-white p-4 shadow">
+        {% block content %} {% endblock content %}
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+- for home page.
+
+```html
+{% extends 'layout.html' %} 
+{% block content %}
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-bold mb-4">Home Page</h1>
+  <p class="mb-4">Welcome to the Home page.</p>
+  <a href="{{ url_for('about') }}" class="text-blue-500">Learn more about us</a>
+</div>
+{% endblock content %}
+
+```
+
+- for about page.
+```html
+{% extends 'layout.html' %} 
+{% block content %}
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-bold mb-4">About Page</h1>
+  <p class="mb-4">This is the About page content.</p>
+  <a href="{{ url_for('home') }}" class="text-blue-500">Back to Home</a>
+</div>
+{% endblock content %}
+
+```
+
+# Congo!!! U Have  made a Double Page Dynamic Website without any database 😒😒
+## Using the Flask Web Framework of python...
