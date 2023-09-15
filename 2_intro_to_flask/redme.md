@@ -248,11 +248,11 @@ def home():
 - to make the about page inherit the navbar we can follow the same process.
 
 ```html
-{%extends 'layout.html' %}
-{%block content %}
+{%extends 'layout.html' %} {%block content %}
 <h1>About page</h1>
 {%endblock %}
 ```
+
 - now if we go to the about page we will see the navbar.
 
 - now if we edit the navbar we will see the changes everywhere.
@@ -292,8 +292,8 @@ if __name__ == "__main__":
 - And we need to fix a simple issue with the hrefs in layout.html file.
 
 ```html
-....
-<a href="{{ url_for('home') }}">Home</a> <!-- url_for is used to get the url of a page -->
+.... <a href="{{ url_for('home') }}">Home</a>
+<!-- url_for is used to get the url of a page -->
 <a href="{{ url_for('about') }}">About</a>
 ....
 ```
@@ -303,13 +303,11 @@ if __name__ == "__main__":
 
 #### now we are ready to go
 
-
-# Stylling 
+# Stylling
 
 - Just use Chatgpt..... ✌😉
 - Im not a designer, I just write code. Sooooooo,
 - Using the revolutionary design tool Chatgpt i styled the layout template with Tailwind CDN.😎😎
-
 
 ```html
 <!DOCTYPE html>
@@ -318,7 +316,10 @@ if __name__ == "__main__":
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body class="bg-gray-100">
@@ -339,29 +340,106 @@ if __name__ == "__main__":
 - for home page.
 
 ```html
-{% extends 'layout.html' %} 
-{% block content %}
+{% extends 'layout.html' %} {% block content %}
 <div class="container mx-auto p-4">
   <h1 class="text-3xl font-bold mb-4">Home Page</h1>
   <p class="mb-4">Welcome to the Home page.</p>
   <a href="{{ url_for('about') }}" class="text-blue-500">Learn more about us</a>
 </div>
 {% endblock content %}
-
 ```
 
 - for about page.
+
 ```html
-{% extends 'layout.html' %} 
-{% block content %}
+{% extends 'layout.html' %} {% block content %}
 <div class="container mx-auto p-4">
   <h1 class="text-3xl font-bold mb-4">About Page</h1>
   <p class="mb-4">This is the About page content.</p>
   <a href="{{ url_for('home') }}" class="text-blue-500">Back to Home</a>
 </div>
 {% endblock content %}
+```
+
+# Congo!!! U Have made a Double Page Dynamic Website without any database 😒😒
+
+## Using the Flask Web Framework of python...
+
+# Nope 😒😒 its not over yet
+
+- You can skip the stylling part from before...
+- we will style it with good old CSS..
+
+- lets make a folder named static and inside it make a folder named css.
+- and make a css file inside the css folder. I'll name my css File main.css
+- this is a standered file structure of flask.
+- now here is the css file.
+
+```css
+/* Styles for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* Styles for the header */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Styles for the navigation menu */
+nav {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Styles for the content block */
+div {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+```
+
+- to link it with the navbar we will use the link tag and the url_for function.
+- so here is the edited layout.html file.
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/main.css') }}"
+  />
+  <title>Document</title>
+</head>
+....
 
 ```
 
-# Congo!!! U Have  made a Double Page Dynamic Website without any database 😒😒
-## Using the Flask Web Framework of python...
+
+- here we just added the url_for('static', filename='css/main.css') to the link tag as href.
+- by which the css is loaded.
+
+
+### Now i leave the rest of the journey in your hands my fellow readers and porgrammers.
+# Thank You and Have a Good day.
