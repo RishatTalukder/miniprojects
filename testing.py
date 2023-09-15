@@ -1,12 +1,8 @@
-import sqlite3
+import subprocess
 
-conn = sqlite3.connect("dictionary copy.db")  # creating a connection to the database
-cursor = conn.cursor()  # cursor object created to perform operations on the database
+input_file = "2_intro_to_flask/readme.md"
+output_file = "README.docx"
 
-cursor.execute(
-    "select Word from Dictionary"
-)
-word_list = cursor.fetchall()
-word_list = [word[0] for word in word_list]
 
-print(word_list)
+subprocess.run(["pandoc", input_file, "-o", output_file])
+print(f"Successfully converted {input_file} to {output_file}.")
