@@ -52,7 +52,7 @@ ISBN_text = StringVar()
 e4 = Entry(window, textvariable=ISBN_text )
 e4.grid(row=1, column=3)
 
-# listbox
+# listbox 
 list1 = Listbox(window, height=6, width=35)
 list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 
